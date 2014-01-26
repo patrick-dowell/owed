@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+  </head>
+  <body>
+    <table>
+		<% for(var i=0; i< entries.length; i++) {%>
+			<tr>
+				<td>
+					Amount Owed: <%= entries[i].owed %>
+				</td>
+				<td>
+					Date: <%= entries[i].date %>
+				</td> 
+				<td>
+					Description: <%= entries[i].description %>
+				</td>
+				</tr>
+		<% } %>
+	</table>
+  </body>
+</html>
