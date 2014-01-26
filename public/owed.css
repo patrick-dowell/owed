@@ -1,5 +1,9 @@
 /* All Pages */
 
+body {
+	background-color: #FCFFED;
+}
+
 .topnav {
 	background: #007020;
 	color: #FFFFFF;
@@ -17,8 +21,8 @@
 
 .topnav ul {
 	float: right;
-	font: 16px bold sans-serif;
-	margin: 10px 20px 0 0;
+	font: 18px bold sans-serif;
+	margin: 13px 20px 0 0;
 }
 
 .topnav li {
@@ -28,17 +32,39 @@
 	padding: 0;
 }
 
+h2 {
+	text-align: center;
+	font: 26px bold sans-serif;
+}
+
 table {
-	border: 1px solid #000000;
+	border-collapse: collapse;
+	border: 4px solid #007020;
 	display: block;
 	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-table td {
-	border: 1px solid #000000;
+thead {
+	background-color: #82FFCC;
+	border: 1px solid #007020;
+	font: 20px bold sans-serif;
+}
+
+tbody {
+	background-color: #FFFFFF;
+	font: 16px bold sans-serif;
+}
+
+tr {
+	border: 1px solid #007020;
+	padding: 
+}
+
+td {
 	margin: 0;
+	padding: 5px 10px 5px 8px;
 }
 
 /* Entry Page */
