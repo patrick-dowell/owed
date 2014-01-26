@@ -8,6 +8,9 @@
     "ejs": "0.8.5",
     "knex": "0.5.4",
     "sqlite3": "2.2.0",
-    "dateformat": "1.x"
+    "dateformat": "1.x",
+    "passport": "0.2.0",
+    "passport-local": "0.1.6",
+    "connect-flash": "0.1.1"
   }
 }
