@@ -14,6 +14,9 @@ var knex = Knex.initialize({
 });
 
 app.use(express.bodyParser());
+app.configure(function() {
+  app.use(express.static(__dirname + '/public'));
+});
 
 app.get('/setup', function(req, res) {
   knex.schema.createTable('entries', function (table) {

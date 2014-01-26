@@ -3,21 +3,39 @@
     <title>
       <%= title %>
     </title>
+    <link type="text/css" rel="stylesheet" href="/owed.css"/>
   </head>
   <body>
-    <ul>
-                <li>
-                       Entry Id: <%= entry.id %>
-                </li>
-		<li>
-			Amount Owed: <%= entry.owed %>
-		</li>
-		<li>
-			Date: <%= entry.date %>
-		</li> 
-		<li>
-			Description: <%= entry.description %>
-		</li>
-	</ul> 
+    <table>
+    <thead>
+    	<th>
+    		Entry Id
+    	</th>
+    	<th>
+    		Amount Owed
+    	</th>
+    	<th>
+    		Date
+    	</th>
+    	<th>
+    		Description
+    	</th>
+    </thead>
+    <tbody>
+    	<tr>
+    		<td>
+    			<%= entry.id %>
+    		</td>
+    		<td>
+    			<%= entry.owed %>
+    		</td>
+    		<td>
+    			<%= entry.date %>
+    		</td>
+    		<td>
+    			<%= entry.description %>
+    		</td>
+    	</tr>
+    </tbody>
   </body>
 </html>

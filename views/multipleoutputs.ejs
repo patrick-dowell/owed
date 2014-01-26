@@ -3,25 +3,60 @@
     <title>
       <%= title %>
     </title>
+     <link type="text/css" rel="stylesheet" href="/owed.css"/>
   </head>
   <body>
+  	<div class="topnav">
+  		<p>
+  			Owed
+  		</p>
+  		<ul>
+  			<li>
+  				Input
+  			</li>
+  			<li>
+  				Single Output
+  			</li>
+  			<li>
+  				Multiple Outputs
+  			</li>
+  		</ul>
+  	</div>
     <table>
+    	<thead>
+    		<th>
+    			Entry Id
+    		</th>
+    		<th>
+    			Amount Owed
+    		</th>
+    		<th>
+    			Date
+    		</th>
+    		<th>
+    			Description
+    		</th>
+    	</thead>
+    	<tbody>
 		<% for(var i=0; i< entries.length; i++) {%>
 			<tr>
-                                <td>
-                                       Entry Id: <%= entries[i].id %>
-                                </td>
+                <td>
+                    <%= entries[i].id %>
+                </td>
 				<td>
-					Amount Owed: <%= entries[i].owed %>
+					<%= entries[i].owed %>
 				</td>
 				<td>
-					Date: <%= entries[i].date %>
+					<%= entries[i].date %>
 				</td> 
 				<td>
-					Description: <%= entries[i].description %>
+					<%= entries[i].description %>
 				</td>
 				</tr>
 		<% } %>
+		</tbody>
 	</table>
+	<footer>
+	</footer>
   </body>
 </html>
