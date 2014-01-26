@@ -1,41 +1,42 @@
 <html>
   <head>
-    <title>
-      <%= title %>
-    </title>
-    <link type="text/css" rel="stylesheet" href="/owed.css"/>
+   	<%- include head.ejs %>
   </head>
   <body>
-    <table>
-    <thead>
-    	<th>
-    		Entry Id
-    	</th>
-    	<th>
-    		Amount Owed
-    	</th>
-    	<th>
-    		Date
-    	</th>
-    	<th>
-    		Description
-    	</th>
-    </thead>
-    <tbody>
-    	<tr>
-    		<td>
-    			<%= entry.id %>
-    		</td>
-    		<td>
-    			<%= entry.owed %>
-    		</td>
-    		<td>
-    			<%= entry.date %>
-    		</td>
-    		<td>
-    			<%= entry.description %>
-    		</td>
-    	</tr>
-    </tbody>
+  	<%- include topnav.ejs %>
+  	<h2>
+  		ENTRY #<%= entry.id %>
+  	</h2>
+    <div class="oneentry">
+    	<table>
+			<tbody>
+			<tr>
+    			<td>
+    				Date:
+				</td>
+				<td>
+    				<%= entry.date %>
+				</td>
+			</tr>
+			<tr>
+    			<td>
+    				Amount:
+				</td>
+				<td>
+    				$<%= entry.owed %>
+				</td>
+			</tr>
+			<tr>
+    			<td>
+    				Description:
+				</td>
+				<td>
+    				<%= entry.description %>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+    <%- include footer.ejs %>
   </body>
 </html>

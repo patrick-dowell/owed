@@ -1,59 +1,40 @@
 <html>
   <head>
-    <title>
-      <%= title %>
-    </title>
-     <link type="text/css" rel="stylesheet" href="/owed.css"/>
+   	<%- include head.ejs %>
   </head>
   <body>
-  	<div class="topnav">
-  		<p>
-  			Owed
-  		</p>
-  		<ul>
-  			<li>
-  				Input
-  			</li>
-  			<li>
-  				Entries
-  			</li>
-  			<li>
-  				About
-  			</li>
-  		</ul>
-  	</div>
-  	<h2>Entry Spreadsheet</h2>
+  	<%- include topnav.ejs %>
+  	<h2>
+  		ENTRIES
+  	</h2>
+    <div class="entries">
     <table>
     	<thead>
     		<th>
     			Id#
     		</th>
     		<th>
-    		</th>
-    		<th>
-    			Amount Owed
-    		</th>
-    		<th>
     			Date
+    		</th>
+    		<th>
+	    		Amount
     		</th>
     		<th>
     			Description
     		</th>
     	</thead>
-    	<tbody>
-		<% for(var i=0; i< entries.length; i++) {%>
-			<tr>
+    	<tbody class="entries">
+		<% for(var i=entries.length-1; i>=0; i--) {%>
+			<tr class="entries">
                 <td>
                     <%= entries[i].id %>
                 </td>
-                 <td>
-                </td>
+                <td>
+					<%= (new Date(entries[i].date)).toDateString() %>
+				</td>
 				<td>
 					$<%= entries[i].owed %>
 				</td>
-				<td>
-					<%= (new Date(entries[i].date)).toDateString() %>
-				</td> 
 				<td>
 					<%= entries[i].description %>
 				</td>
@@ -61,7 +42,7 @@
 		<% } %>
 		</tbody>
 	</table>
-	<footer>
-	</footer>
+	</div>
+	<%- include footer.ejs %>
   </body>
 </html>
