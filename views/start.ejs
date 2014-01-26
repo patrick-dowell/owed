@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <%- include head.ejs %>
+  </head>
+  <body>
+    <% if (message) { %>
+     <p><%= message %></p>
+    <% } %>
+    <h2><%= title %></h2>
+    <form action="/login" method="post">
+        <div>
+          <label>Username:</label>
+          <input type="text" name="username"/><br/>
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" name="password"/>
+        </div>
+        <div>
+          <input type="submit" value="Submit"/>
+        </div>
+    </form>
+    <div>If you don't have an account, you can <a href="/register">register</a> for one.</div>
+  </body>
+</html>
