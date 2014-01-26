@@ -8,6 +8,9 @@
     <table>
 		<% for(var i=0; i< entries.length; i++) {%>
 			<tr>
+                                <td>
+                                       Entry Id: <%= entries[i].id %>
+                                </td>
 				<td>
 					Amount Owed: <%= entries[i].owed %>
 				</td>
