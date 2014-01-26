@@ -47,7 +47,7 @@
 					<%= entries[i].owed %>
 				</td>
 				<td>
-					<%= entries[i].date %>
+					<%= (new Date(entries[i].date)).toDateString() %>
 				</td> 
 				<td>
 					<%= entries[i].description %>
