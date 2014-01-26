@@ -15,17 +15,20 @@
   				Input
   			</li>
   			<li>
-  				Single Output
+  				Entries
   			</li>
   			<li>
-  				Multiple Outputs
+  				About
   			</li>
   		</ul>
   	</div>
+  	<h2>Entry Spreadsheet</h2>
     <table>
     	<thead>
     		<th>
-    			Entry Id
+    			Id#
+    		</th>
+    		<th>
     		</th>
     		<th>
     			Amount Owed
@@ -43,8 +46,10 @@
                 <td>
                     <%= entries[i].id %>
                 </td>
+                 <td>
+                </td>
 				<td>
-					<%= entries[i].owed %>
+					$<%= entries[i].owed %>
 				</td>
 				<td>
 					<%= (new Date(entries[i].date)).toDateString() %>
