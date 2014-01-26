@@ -6,14 +6,17 @@
   </head>
   <body>
     <ul>
+                <li>
+                       Entry Id: <%= entry.id %>
+                </li>
 		<li>
-			Amount Owed: <%= owed %>
+			Amount Owed: <%= entry.owed %>
 		</li>
 		<li>
-			Date: <%= date %>
+			Date: <%= entry.date %>
 		</li> 
 		<li>
-			Description: <%= description %>
+			Description: <%= entry.description %>
 		</li>
 	</ul> 
   </body>
