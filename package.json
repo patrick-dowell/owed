@@ -8,6 +8,6 @@
     "ejs": "0.8.5",
     "knex": "0.5.4",
     "sqlite3": "2.2.0",
-    "dateformat": "1.2.3"
+    "dateformat": "1.x"
   }
 }
