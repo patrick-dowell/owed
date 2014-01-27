@@ -6,13 +6,14 @@
   	<%- include topnav.ejs %>
   	<h2>INPUT NEW ENTRY</h2>
     <form action="/entry/new" method="post">
-		Amount Owed: $<input type=“text” id="owed" name="owed" required />
+		<label>Amount Owed: $</label><input type=“text” id="owed" name="owed" required />
 		<br>
-		Date: <input type=“date” id="date" name="date" required />
+		<label>Date:</label><input type=“date” id="date" name="date" required />
 		<br>
-		Description: <input type=“text” id="description" name="description" required />
+		<label>Description:</label><input type=“text” id="description" name="description" required />
 		<br>
-		<input type="submit" value="submit" />
+		<div class="centersubmit">&nbsp;</div>
+		<input type="submit" value="submit" id="submit"/>
 	</form>
 	<%- include footer.ejs %>
   </body>

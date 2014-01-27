@@ -25,7 +25,7 @@
     	</thead>
     	<tbody class="entries">
 		<% for(var i=entries.length-1; i>=0; i--) {%>
-			<tr class="entries">
+			<tr class="entries" href="/entry/<%= entries[i].id %>">
                 <td>
                     <%= entries[i].id %>
                 </td>
@@ -38,7 +38,7 @@
 				<td>
 					<%= entries[i].description %>
 				</td>
-				</tr>
+			</tr>
 		<% } %>
 		</tbody>
 	</table>
