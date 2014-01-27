@@ -6,6 +6,19 @@
     <% if (message) { %>
      <p><%= message %></p>
     <% } %>
+    <div class="topnav">
+    	<h1>
+    		Owed
+    	</h1>
+    	<ul>
+    		<li>
+    			About
+    		</li>
+    		<li>
+    			Log In
+    		</li>
+    	</ul>
+    </div>
     <h2><%= title %></h2>
     <form action="/login" method="post">
         <div>
@@ -20,6 +33,21 @@
           <input type="submit" value="Submit"/>
         </div>
     </form>
-    <div>If you don't have an account, you can <a href="/register">register</a> for one.</div>
+    <div>
+    	If you don't have an account, you can <a href="/register">register</a> for one.
+    </div>
+    <div class="footer">
+    	<ul>
+    		<li>
+    			About
+    		</li>
+    		<li>
+    			Log In
+    		</li>
+    	</ul>
+    	<p>
+    		Owed Copyright &copy; 2014 <a href="http://www.phasesix.net/">Phase Six</a>.  All rights reserved.
+    	</p>
+    </div>
   </body>
 </html>
