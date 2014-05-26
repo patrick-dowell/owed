@@ -38,6 +38,35 @@ var FlashComponent = React.createClass({
   }
 });
 
+var SignInButtonComponent = React.createClass({
+  getInitialState: function() {
+    return {button: "Sign In"};
+  },
+  render: function() {
+    return (<li>{this.state.button}</li>);
+  }
+});
+
+var SignInComponent = React.createClass({
+  render: function() {
+    return (
+      <form action="/login" method="post">
+        <div>
+          <label>Username:</label>
+          <input type="text" name="username"/><br/>
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" name="password"/>
+        </div>
+        <div>
+          <input type="submit" value="Submit"/>
+        </div>
+    </form>
+    );
+  }
+});
+
 var MainComponent = React.createClass({
   getInitialState: function() {
     return {title: "",

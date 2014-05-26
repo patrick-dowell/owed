@@ -33,6 +33,17 @@ h1 {
 	padding: 0;
 }
 
+#topnav_controls li {
+		cursor: pointer;
+}
+
+#sign-in {
+	display: none;
+	right: 0;
+	top: 60px;
+	position: absolute;
+}
+
 h2 {
 	display: block;
 	text-align: center;
