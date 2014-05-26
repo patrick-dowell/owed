@@ -121,6 +121,14 @@ app.get('/', function(req, res) {
   res.render('base.ejs', {title: 'owed'});
 });
 
+app.get('/home', function(req, res) {
+  res.send(JSON.stringify({
+    title: "foo",
+    text: "bar",
+    message: "rar"
+  }));
+});
+
 app.get('/users/:username', function(req, res) {
   res.send("Welcome " + req.user.username + ". Just to verify, your username is " + req.params.username);
 });
