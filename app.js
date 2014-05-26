@@ -47,6 +47,15 @@ var prescreen = function(req, res) {
   }
 }
 
+var prescreen = function(req, res) {
+  if (req.user) {
+    return {user: req.user, msg: ""};
+  }
+  else {
+    return {user: "", msg: "You must be logged in to view that page"};
+  }
+}
+
 // Passport session setup.
 // //   To support persistent login sessions, Passport needs to be able to
 // //   serialize users into and deserialize users out of the session.  Typically,
@@ -137,6 +146,45 @@ app.post('/login',
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
   function (req, res) {
     res.redirect('/entries');
+});
+
+app.post('/login2', function(req, res) {
+  passport.authenticate('local', function (err, user) {
+    if (err) {
+      res.send(JSON.stringify({
+        user: "",
+        message: err
+      }));
+    }
+    if (!user) {
+      res.send(JSON.stringify({
+        user: "",
+        message: "username or password invalid"
+      }));
+    }
+    else {
+      req.logIn(user, function(err) {
+        if (err) {
+          res.send(JSON.stringify({
+            user: "",
+            message: err
+          }));
+        }
+        else {
+          res.send(JSON.stringify({
+            user: user.username,
+            message: "login successful!"
+          }));
+        }
+      });
+    }
+  })(req, res);
+});
+
+app.get('/checklogin', function(req,res) {
+  res.send(JSON.stringify({
+    user: (req.user ? req.user.username : "")
+  }));
 });
 
 app.get('/logout', function(req, res) {
