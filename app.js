@@ -60,8 +60,8 @@ passport.deserializeUser(function(id, done) {
   findById(id - 1, function (err, user) {
     done(err, user);
   });
-});          
-  
+});
+
 passport.use(new LocalStrategy(
   function(username, password, done) {
     process.nextTick(function () {
@@ -117,6 +117,10 @@ app.get('/test', function(req, res) {
   res.render('template.ejs', {title: 'foo'});
 });
 
+app.get('/', function(req, res) {
+  res.render('base.ejs', {title: 'owed'});
+});
+
 app.get('/users/:username', function(req, res) {
   res.send("Welcome " + req.user.username + ". Just to verify, your username is " + req.params.username);
 });
@@ -139,7 +143,7 @@ app.get('/login', function(req, res) {
 app.post('/register', function(req, res) {
   knex('users').insert({username: req.body.username, password: req.body.password, email: req.body.email}).then(function (r) {
     req.flash('error', 'Registration complete! Please login');
-    res.redirect("/login");	  
+    res.redirect("/login");
   });
 });
 
@@ -177,8 +181,8 @@ app.get('/entry/:id', function(req, res) {
 app.post('/entry/new', function(req, res) {
   var user = prescreen(req, res);
   if (user) {
-    knex('entries').insert({username: user.username, 
-   	                    owed: req.body.owed, 
+    knex('entries').insert({username: user.username,
+   	                    owed: req.body.owed,
 	                    description: req.body.description,
 	                    date: dateFormat(req.body.date)
     }).then(function (output) {
