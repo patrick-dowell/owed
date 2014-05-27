@@ -47,12 +47,12 @@ var prescreen = function(req, res) {
   }
 }
 
-var prescreen = function(req, res) {
+var prescreen2 = function(req, res) {
   if (req.user) {
-    return {user: req.user, msg: ""};
+    return {user: req.user.username, message: ""};
   }
   else {
-    return {user: "", msg: "You must be logged in to view that page"};
+    return {user: "", message: "You must be logged in to view that page"};
   }
 }
 
@@ -226,6 +226,20 @@ app.get('/entries', function(req, res) {
   if (user) {
     knex('entries').where('username', user.username).select().then(function (entries) {
     res.render('multipleoutputs.ejs', {title: 'Your Entries', entries: entries});
+    });
+  }
+});
+
+app.get('/entries2', function(req, res) {
+  var data = prescreen2(req, res);
+  data.title = "ENTRIES";
+  if (!data.user) {
+    res.send(JSON.stringify(data));
+  }
+  else {
+    knex('entries').where('username', data.user).select().then(function (entries) {
+      data['entries'] = entries;
+      res.send(JSON.stringify(data));
     });
   }
 });

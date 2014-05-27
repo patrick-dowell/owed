@@ -11,6 +11,12 @@ var CommentBox = React.createClass({
   }
 });
 
+var ContentType = {
+  HOME: 0,
+  ENTRIES: 1,
+  NONE: 3
+};
+
 var TitleComponent = React.createClass({
   render: function() {
     if (this.props.title === "") {
@@ -24,11 +30,67 @@ var TitleComponent = React.createClass({
   }
 });
 
-var ContentComponent = React.createClass({
+var EntryComponent = React.createClass({
   render: function() {
     return (
-      <p>{this.props.text}</p>
+	    <tr className="entries">
+        <td>
+          {this.props.id}
+        </td>
+        <td>
+          {(new Date(this.props.date)).toDateString()}
+        </td>
+        <td>
+	        ${this.props.owed}
+        </td>
+		    <td>
+          {this.props.description}
+			  </td>
+	    </tr>
     );
+  }
+});
+
+var ContentComponent = React.createClass({
+
+  render: function() {
+    if (this.props.contentType == ContentType.HOME) {
+      return (
+        <p>{this.props.text}</p>
+      );
+    }
+    else if (this.props.contentType == ContentType.ENTRIES) {
+      var entries = this.props.entries.map(function (entry) {
+            return <EntryComponent id={entry.id} date={entry.date} owed={entry.owed} description={entry.description}/>;
+          });
+      return (
+        <div className="entries">
+          <table>
+        	  <thead>
+        		  <th>
+        			  Id#
+        		  </th>
+        		  <th>
+        			  Date
+        		  </th>
+        		  <th>
+    	    		  Amount
+        		  </th>
+        		  <th>
+        			  Description
+        		  </th>
+        	  </thead>
+        	  <tbody className="entries">
+              { entries }
+    		    </tbody>
+    	    </table>
+    	  </div>
+      );
+    }
+    else {
+      return (<p>No Content</p>);
+    }
+
   }
 });
 
@@ -87,9 +149,13 @@ var SignInComponent = React.createClass({
 
 var MainComponent = React.createClass({
   getInitialState: function() {
-    return {title: "",
-    message: "",
-    content: ""};
+    return {
+      title: "",
+      message: "",
+      content: "",
+      entries: [],
+      contentType: ContentType.NONE
+    };
   },
   updateSignInState: function(data) {
     this.setState({
@@ -139,7 +205,7 @@ var MainComponent = React.createClass({
             <FlashComponent message={this.state.message}/>
           </div>
           <div id="content">
-            <ContentComponent text={this.state.content}/>
+            <ContentComponent text={this.state.content} contentType={this.state.contentType} entries={this.state.entries}/>
           </div>
         </div>
 
@@ -156,21 +222,6 @@ var MainComponent = React.createClass({
     );
   },
   componentWillMount: function() {
-      $.ajax({
-        url: '/home',
-        dataType: 'json',
-        success: function(data) {
-          this.setState({
-            title: data.title,
-            message: data.message,
-            content: data.text
-          });
-        }.bind(this),
-        error: function(xhr, status, err) {
-          console.error('/home', status, err.toString());
-        }.bind(this)
-      });
-
       comp = this;
 
       $.ajax({
@@ -190,10 +241,52 @@ function updateSignInOutButtons(data, comp) {
   if (data.user) {
     $('.signInButton').hide();
     $('.signOutButton').show();
+    if (comp.state.contentType != ContentType.ENTRIES) {
+      // get the entries page
+      $.ajax({
+        url: '/entries2',
+        dataType: 'json',
+        success: function(data) {
+          if (data.user) {  // success
+            comp.setState({
+              title: data.title,
+              message: data.message,
+              entries: data.entries,
+              contentType: ContentType.ENTRIES
+            });
+          }
+          else {
+            comp.setState({ message: data.message });
+          }
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error('/entries', status, err.toString());
+        }.bind(this)
+      });
+    }
   }
   else {
     $('.signInButton').show();
     $('.signOutButton').hide();
+    if (comp.state.contentType != ContentType.HOME) {
+      // get the homepage
+      $.ajax({
+        url: '/home',
+        dataType: 'json',
+        success: function(data) {
+          comp.setState({
+            title: data.title,
+            message: data.message,
+            content: data.text,
+            entries: [],
+            contentType: ContentType.HOME
+          });
+        }.bind(this),
+        error: function(xhr, status, err) {
+          console.error('/home', status, err.toString());
+        }.bind(this)
+      });
+    }
   }
 
   $('.signOutButton').click(function () {
