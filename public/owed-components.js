@@ -46,8 +46,8 @@ var SignInComponent = React.createClass({
       dataType: 'json',
       type: 'post',
       data: {
-        username: $('#username').val(),
-        password: $('#password').val()
+        username: comp.refs.username.getDOMNode().value,
+        password: comp.refs.password.getDOMNode().value
       },
       success: function(data) {
         if (data.user) {
@@ -71,11 +71,11 @@ var SignInComponent = React.createClass({
       <form onSubmit={this.handleSubmit}>
         <div>
           <label>Username:</label>
-          <input type="text" id="username"/><br/>
+          <input type="text" ref="username"/><br/>
         </div>
         <div>
           <label>Password:</label>
-          <input type="password" id="password"/>
+          <input type="password" ref="password"/>
         </div>
         <div>
           <input type="submit" value="Submit" />
