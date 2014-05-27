@@ -48,6 +48,10 @@ h1 {
   display: none;
 }
 
+#newEntryForm {
+  display: none;
+}
+
 h2 {
 	display: block;
 	text-align: center;
@@ -59,11 +63,9 @@ h2 {
 
 .footer {
 	background: #7C9487;
-	bottom: 0;
 	color: #FFFFFF;
 	display: block;
 	height: 40px;
-	position: absolute;
 	width: 100%;
 }
 
@@ -106,6 +108,10 @@ form {
 	margin: 0 auto;
 	padding: 5px;
 	width: 500px;
+}
+
+#newEntryForm {
+  height: 155px;
 }
 
 label{

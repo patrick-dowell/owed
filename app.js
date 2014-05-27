@@ -232,13 +232,13 @@ app.get('/entries', function(req, res) {
 
 app.get('/entries2', function(req, res) {
   var data = prescreen2(req, res);
-  data.title = "ENTRIES";
+  data.title = "ENTRIES for " + data.user;
   if (!data.user) {
     res.send(JSON.stringify(data));
   }
   else {
-    knex('entries').where('username', data.user).select().then(function (entries) {
-      data['entries'] = entries;
+    knex('entries').where('username', data.user).select().orderBy("id", "desc").then(function (entries) {
+      data['entries'] = entries; // TODO: sort these based on date
       res.send(JSON.stringify(data));
     });
   }
@@ -266,6 +266,23 @@ app.post('/entry/new', function(req, res) {
     }).then(function (output) {
       res.redirect("/entry/" + output[0]);
     });
+  }
+});
+
+app.post('/entry2/new', function(req, res) {
+  var data = prescreen2(req, res);
+  if (data.user) {
+    knex('entries').insert({username: data.user,
+   	                    owed: req.body.owed,
+	                    description: req.body.description,
+	                    date: dateFormat(req.body.date)
+    }).then(function (output) {
+      data.entryId = output[0];
+      res.send(JSON.stringify(data));
+    });
+  }
+  else {
+    res.send(JSON.stringify(data));
   }
 });
 

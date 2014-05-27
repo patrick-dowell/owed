@@ -51,8 +51,56 @@ var EntryComponent = React.createClass({
   }
 });
 
-var ContentComponent = React.createClass({
+var NewEntryComponent = React.createClass({
+  handleSubmit: function(e) {
+    e.preventDefault();
 
+    var entry = {
+      owed: this.refs.owed.getDOMNode().value,
+      date: this.refs.date.getDOMNode().value,
+      description: this.refs.description.getDOMNode().value
+    };
+    comp = this;
+    $.ajax({
+      url: '/entry2/new',
+      dataType: 'json',
+      type: 'post',
+      data: entry,
+      success: function(data) {
+        if (data.user) {
+          entry.id = data.entryId;
+          comp.props.entryHandler(entry);
+        }
+        else {
+          alert("failed to create a new entry!"); // TODO: fix this
+        }
+      },
+      error: function(xhr, status, err) {
+        console.error('/entry2/new', status, err.toString());
+      }
+    });
+
+  },
+  render: function() {
+    return (
+      <form id="newEntryForm" onSubmit={this.handleSubmit}>
+  		  <label>Amount Owed: $</label>
+        <input type="text" ref="owed" required />
+  		  <br />
+  		  <label>Date:</label>
+        <input type="date" ref="date" required />
+  		  <br />
+  		  <label>Description:</label>
+        <input type="text" ref="description" required />
+  		  <br />
+  		  <div className="centersubmit">&nbsp;</div>
+  		  <input type="submit" value="submit" />
+  	  </form>
+    )
+  }
+});
+
+var ContentComponent = React.createClass({
   render: function() {
     if (this.props.contentType == ContentType.HOME) {
       return (
@@ -84,6 +132,10 @@ var ContentComponent = React.createClass({
               { entries }
     		    </tbody>
     	    </table>
+          <p>
+            <span id="newEntryButton">New Entry</span>
+
+          </p>
     	  </div>
       );
     }
@@ -142,7 +194,7 @@ var SignInComponent = React.createClass({
         <div>
           <input type="submit" value="Submit" />
         </div>
-    </form>
+      </form>
     );
   }
 });
@@ -180,6 +232,11 @@ var MainComponent = React.createClass({
       }.bind(this)
     });
   },
+  addEntry: function(entry) {
+    this.setState({
+      entries: [entry].concat(this.state.entries)
+    });
+  },
   render: function() {
     return (
       <div>
@@ -205,7 +262,12 @@ var MainComponent = React.createClass({
             <FlashComponent message={this.state.message}/>
           </div>
           <div id="content">
-            <ContentComponent text={this.state.content} contentType={this.state.contentType} entries={this.state.entries}/>
+            <ContentComponent text={this.state.content}
+              contentType={this.state.contentType}
+              entries={this.state.entries} />
+          </div>
+          <div id="newEntry">
+            <NewEntryComponent entryHandler={this.addEntry}/>
           </div>
         </div>
 
@@ -253,6 +315,9 @@ function updateSignInOutButtons(data, comp) {
               message: data.message,
               entries: data.entries,
               contentType: ContentType.ENTRIES
+            });
+            $("#newEntryButton").click(function () {
+              $("#newEntryForm").toggle();
             });
           }
           else {

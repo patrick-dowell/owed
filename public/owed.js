@@ -3,11 +3,6 @@
  */
 
 $(document).ready(function(){
-    $('.entries tr').click(function(){
-        window.location = $(this).attr('href');
-        return false;
-    });
-
     React.renderComponent(
       <MainComponent />,
       document.getElementById('body')
@@ -16,5 +11,4 @@ $(document).ready(function(){
     $('.signInButton').click(function(){
       $('#sign-in').toggle();
     });
-
 });
