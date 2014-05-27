@@ -10,28 +10,11 @@ $(document).ready(function(){
 
     React.renderComponent(
       <MainComponent />,
-      document.getElementById('main')
+      document.getElementById('body')
     );
 
-    React.renderComponent(
-      <SignInButtonComponent />,
-      document.getElementById('topnav_controls')
-    );
-
-    React.renderComponent(
-      <SignInButtonComponent />,
-      document.getElementById('botnav_controls')
-    );
-
-    React.renderComponent(
-      <SignInComponent />,
-      document.getElementById('sign-in')
-    );
-
-    $('#topnav_controls').click(
-      function(){
-        $('#sign-in').toggle();
-      }
-    );
+    $('.signInButton').click(function(){
+      $('#sign-in').toggle();
+    });
 
 });

@@ -44,6 +44,10 @@ h1 {
 	position: absolute;
 }
 
+#signOutButton {
+  display: none;
+}
+
 h2 {
 	display: block;
 	text-align: center;
@@ -204,4 +208,7 @@ input {
 	width: 20%;
 }
 
+#message {
+  color: red;
+}
 

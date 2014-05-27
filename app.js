@@ -132,9 +132,9 @@ app.get('/', function(req, res) {
 
 app.get('/home', function(req, res) {
   res.send(JSON.stringify({
-    title: "foo",
-    text: "bar",
-    message: "rar"
+    title: "Owed Homepage",
+    text: "Welcome to Owed",
+    message: ""
   }));
 });
 
@@ -190,6 +190,14 @@ app.get('/checklogin', function(req,res) {
 app.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/login');
+});
+
+app.get('/logout2', function(req, res) {
+  req.logout();
+  res.send(JSON.stringify({
+    user: "",
+    message: "logout successful!"
+  }));
 });
 
 app.get('/login', function(req, res) {
