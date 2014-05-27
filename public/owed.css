@@ -33,7 +33,7 @@ h1 {
 	padding: 0;
 }
 
-#topnav_controls li {
+#topnav_controls li, #botnav_controls li {
 		cursor: pointer;
 }
 
