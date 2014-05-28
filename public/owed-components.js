@@ -271,12 +271,12 @@ var MainComponent = React.createClass({
           </div>
         </main>
 
-        <footer>
-        	<ul>
+        <footer className="row">
+        	<ul className="col-md-6">
             <li className="signInButton">Sign In</li>
             <li className="signOutButton">Sign Out</li>
         	</ul>
-        	<p>
+        	<p className="col-md-6">
         		Owed Copyright &copy; 2014 <a href="http://www.phasesix.net/">Phase Six</a>.  All rights reserved.
         	</p>
         </footer>
