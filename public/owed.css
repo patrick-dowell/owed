@@ -4,7 +4,6 @@ header {
   color: white;
   display: block;
   height: 60px;
-  position: relative;
   width: 100%;
   top: -10px; }
   header h1 {
@@ -18,7 +17,7 @@ header {
     font-family: "Quicksand", sans-serif;
     font-size: 18px;
     font-weight: bold;
-    margin: 20px 20px 0 0; }
+    margin: 16px 20px 0 0; }
   header li {
     list-style: none;
     cursor: pointer; }
@@ -39,7 +38,7 @@ form {
   font-weight: bold;
   margin: 0 auto;
   padding: 5px;
-  width: 500px; }
+  width: 50%; }
   form label {
     display: inline-block;
     float: left;
@@ -112,14 +111,16 @@ footer {
   color: white;
   display: block;
   height: 40px;
-  width: 100%; }
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
   footer ul {
     color: #fcffed;
     float: left;
     font-family: "Quicksand", sans-serif;
     font-size: 14px;
     font-weight: bold;
-    margin: 13px 20px 0 0; }
+    margin: 10px 20px 0 0; }
   footer li {
     list-style: none;
     cursor: pointer; }
@@ -129,7 +130,7 @@ footer {
     font-family: "Quicksand", sans-serif;
     font-size: 14px;
     font-weight: bold;
-    margin: 12px 40px; }
+    margin: 10px 40px; }
   footer a {
     color: #e0d2d2;
     text-decoration: none; }

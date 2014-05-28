@@ -83,7 +83,7 @@ var NewEntryComponent = React.createClass({
   },
   render: function() {
     return (
-      <form id="newEntryForm" onSubmit={this.handleSubmit}>
+      <form id="newEntryForm" className="row" onSubmit={this.handleSubmit}>
   		  <label>Amount Owed: $</label>
         <input type="text" ref="owed" required />
   		  <br />
@@ -250,23 +250,23 @@ var MainComponent = React.createClass({
         	</ul>
         </header>
 
-        <div id="sign-in">
+        <div id="sign-in" className="container-fluid">
           <SignInComponent onSignInAttempt={this.updateSignInState}/>
         </div>
 
-        <main>
-          <div id="title">
+        <main className="container">
+          <div id="title" className="row">
             <TitleComponent title={this.state.title}/>
           </div>
-          <div id="message">
+          <div id="message" className="row">
             <FlashComponent message={this.state.message}/>
           </div>
-          <div id="content">
+          <div id="content" className="row">
             <ContentComponent text={this.state.content}
               contentType={this.state.contentType}
               entries={this.state.entries} />
           </div>
-          <div id="newEntry">
+          <div id="newEntry" className="row">
             <NewEntryComponent entryHandler={this.addEntry}/>
           </div>
         </main>

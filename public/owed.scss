@@ -25,7 +25,6 @@ header {
 	color: $white;
 	display: block;
 	height: 60px;
-	position: relative;
 	width: $entire-width;
 	top: -10px;
 
@@ -42,7 +41,7 @@ header {
 		font-family: $body-font-family;
 		font-size: $body-font-size + 4px;
 		font-weight: bold;
-		margin: 20px 20px 0 0;
+		margin: 16px 20px 0 0;
 	}
 
 	li {
@@ -71,7 +70,7 @@ form {
 	font-weight: bold;
 	margin: 0 auto;
 	padding: 5px;
-	width: 500px;
+	width: 50%;
 
 	label{
     display: inline-block;
@@ -182,6 +181,8 @@ footer {
 	display: block;
 	height: 40px;
 	width: $entire-width;
+	position: absolute;
+	bottom: 0;
 
 	ul {
 		color: $greywhite;
@@ -189,7 +190,7 @@ footer {
 		font-family: $body-font-family;
 		font-size: $body-font-size;
 		font-weight: bold;
-		margin: 13px 20px 0 0;
+		margin: 10px 20px 0 0;
 	}
 
 	li {
@@ -203,7 +204,7 @@ footer {
 		font-family: $body-font-family;
 		font-size: $body-font-size;
 		font-weight: bold;
-		margin: 12px 40px;
+		margin: 10px 40px;
 	}
 
 	a {
