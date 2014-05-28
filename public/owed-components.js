@@ -240,21 +240,21 @@ var MainComponent = React.createClass({
   render: function() {
     return (
       <div>
-        <div className="topnav">
+        <header>
         	<h1>
         		Owed
         	</h1>
-        	<ul id="topnav_controls">
+        	<ul>
             <li className="signInButton">Sign In</li>
             <li className="signOutButton">Sign Out</li>
         	</ul>
-        </div>
+        </header>
 
         <div id="sign-in">
           <SignInComponent onSignInAttempt={this.updateSignInState}/>
         </div>
 
-        <div id="main">
+        <main>
           <div id="title">
             <TitleComponent title={this.state.title}/>
           </div>
@@ -269,17 +269,17 @@ var MainComponent = React.createClass({
           <div id="newEntry">
             <NewEntryComponent entryHandler={this.addEntry}/>
           </div>
-        </div>
+        </main>
 
-        <div className="footer">
-        	<ul id="botnav_controls">
+        <footer>
+        	<ul>
             <li className="signInButton">Sign In</li>
             <li className="signOutButton">Sign Out</li>
         	</ul>
         	<p>
         		Owed Copyright &copy; 2014 <a href="http://www.phasesix.net/">Phase Six</a>.  All rights reserved.
         	</p>
-        </div>
+        </footer>
       </div>
     );
   },

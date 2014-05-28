@@ -127,7 +127,7 @@ app.get('/test', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-  res.render('base.ejs', {title: 'owed'});
+  res.render('base.ejs', {title: 'Owed'});
 });
 
 app.get('/home', function(req, res) {
