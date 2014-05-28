@@ -34,6 +34,7 @@ header {
 		font-size: 48px;
 		font-weight: bold;
 		margin: 0 50px;
+		padding-top: 4px;
 	}
 
 	ul {
@@ -68,7 +69,7 @@ form {
 	font-family: $body-font-family;
 	font-size: $body-font-size + 6px;
 	font-weight: bold;
-	margin: 0 auto;
+	margin: 0 0 0 auto;
 	padding: 5px;
 	width: 50%;
 
@@ -77,17 +78,19 @@ form {
     float: left;
     clear: left;
     width: 250px;
-    text-align: right;
     margin: 1px 5px;
-    padding: 5px;
 	}
 
 	input {
   	background-color: $greywhite;
   	display: inline-block;
   	float: left;
-  	margin: 1px 5px;
-  	padding: 5px;
+  	margin: 5px 5px;
+	}
+
+	input[type~="submit"] {
+		float: right;
+		margin-right: 15px;
 	}
 
 	.centersubmit {
@@ -179,10 +182,15 @@ footer {
 	background: $lightgreen;
 	color: $white;
 	display: block;
-	height: 40px;
 	width: $entire-width;
 	position: absolute;
+	padding-top: 10px;
 	bottom: 0;
+
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+	}
 
 	ul {
 		color: $greywhite;
@@ -190,7 +198,6 @@ footer {
 		font-family: $body-font-family;
 		font-size: $body-font-size;
 		font-weight: bold;
-		margin: 10px 20px 0 0;
 	}
 
 	li {
@@ -200,11 +207,10 @@ footer {
 
 	p {
 		color: $greywhite;
-		float: right;
+		text-align: right;
 		font-family: $body-font-family;
 		font-size: $body-font-size;
 		font-weight: bold;
-		margin: 10px 40px;
 	}
 
 	a {

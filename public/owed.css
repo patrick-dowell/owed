@@ -11,7 +11,8 @@ header {
     font-family: "Rochester", cursive;
     font-size: 48px;
     font-weight: bold;
-    margin: 0 50px; }
+    margin: 0 50px;
+    padding-top: 4px; }
   header ul {
     float: right;
     font-family: "Quicksand", sans-serif;
@@ -36,7 +37,7 @@ form {
   font-family: "Quicksand", sans-serif;
   font-size: 20px;
   font-weight: bold;
-  margin: 0 auto;
+  margin: 0 0 0 auto;
   padding: 5px;
   width: 50%; }
   form label {
@@ -44,15 +45,15 @@ form {
     float: left;
     clear: left;
     width: 250px;
-    text-align: right;
-    margin: 1px 5px;
-    padding: 5px; }
+    margin: 1px 5px; }
   form input {
     background-color: #fcffed;
     display: inline-block;
     float: left;
-    margin: 1px 5px;
-    padding: 5px; }
+    margin: 5px 5px; }
+  form input[type~="submit"] {
+    float: right;
+    margin-right: 15px; }
   form .centersubmit {
     clear: left;
     float: left;
@@ -110,27 +111,28 @@ footer {
   background: #7c9487;
   color: white;
   display: block;
-  height: 40px;
   width: 100%;
   position: absolute;
+  padding-top: 10px;
   bottom: 0; }
+  footer .row {
+    margin-left: 0;
+    margin-right: 0; }
   footer ul {
     color: #fcffed;
     float: left;
     font-family: "Quicksand", sans-serif;
     font-size: 14px;
-    font-weight: bold;
-    margin: 10px 20px 0 0; }
+    font-weight: bold; }
   footer li {
     list-style: none;
     cursor: pointer; }
   footer p {
     color: #fcffed;
-    float: right;
+    text-align: right;
     font-family: "Quicksand", sans-serif;
     font-size: 14px;
-    font-weight: bold;
-    margin: 10px 40px; }
+    font-weight: bold; }
   footer a {
     color: #e0d2d2;
     text-decoration: none; }
