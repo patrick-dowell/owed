@@ -94,7 +94,7 @@ var NewEntryComponent = React.createClass({
         <input type="text" ref="description" required />
   		  <br />
   		  <div className="centersubmit">&nbsp;</div>
-  		  <input type="submit" value="submit" />
+  		  <input type="submit" className="button" value="submit" />
   	  </form>
     )
   }
@@ -133,7 +133,7 @@ var ContentComponent = React.createClass({
     		    </tbody>
     	    </table>
           <p>
-            <span id="newEntryButton">New Entry</span>
+            <span id="newEntryButton"><span className="glyphicon glyphicon-plus-sign"></span>New Entry</span>
 
           </p>
     	  </div>

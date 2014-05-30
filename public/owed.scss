@@ -166,7 +166,12 @@ form {
 
 }
 
-#newEntryButton {}
+#newEntry {
+}
+
+#newEntryButton {
+	cursor:pointer;
+}
 
 #newEntryForm {
 	display: none;

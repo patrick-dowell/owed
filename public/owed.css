@@ -102,6 +102,9 @@ form {
     padding: 5px 0 5px 5px;
     width: 20%; }
 
+#newEntry {
+  cursor: pointer; }
+
 #newEntryForm {
   display: none;
   height: 155px; }
