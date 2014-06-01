@@ -98,6 +98,7 @@ var NewEntryComponent = React.createClass({
   	  </form>
     )
   }
+   
 });
 
 var ContentComponent = React.createClass({
@@ -236,6 +237,9 @@ var MainComponent = React.createClass({
     this.setState({
       entries: [entry].concat(this.state.entries)
     });
+    $('#newEntryForm').hide()
+        .find("input[type=text]").val("")
+        .find("input[type=date]").val("");
   },
   render: function() {
     return (
@@ -346,6 +350,7 @@ function updateSignInOutButtons(data, comp) {
             entries: [],
             contentType: ContentType.HOME
           });
+          $('#newEntryForm').hide();
         }.bind(this),
         error: function(xhr, status, err) {
           console.error('/home', status, err.toString());

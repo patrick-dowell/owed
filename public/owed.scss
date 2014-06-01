@@ -63,6 +63,12 @@ h2 {
 	font-weight: bold;
 }
 
+/* MAIN */
+
+main {
+	min-height: 1000px;
+}
+
 /* FORMS */
 
 form {
@@ -188,7 +194,6 @@ footer {
 	color: $white;
 	display: block;
 	width: $entire-width;
-	position: absolute;
 	padding-top: 10px;
 	bottom: 0;
 

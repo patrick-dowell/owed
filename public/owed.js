@@ -12,9 +12,9 @@ $(document).ready(function(){
       $('#sign-in').toggle();
     });
 
-    $('.button').click(function(){
-      $('#newEntryForm').hide()
-        .find("input[type=text]").val("")
-        .find("input[type=date]").val("");
-    });
+    //$('.button').click(function(){
+      //$('#newEntryForm').hide()
+        //.find("input[type=text]").val("")
+        //.find("input[type=date]").val("");
+    //});
 });

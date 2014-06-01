@@ -32,6 +32,10 @@ h2 {
   font-size: 26px;
   font-weight: bold; }
 
+/* MAIN */
+main {
+  min-height: 1000px; }
+
 /* FORMS */
 form {
   font-family: "Quicksand", sans-serif;
@@ -102,7 +106,7 @@ form {
     padding: 5px 0 5px 5px;
     width: 20%; }
 
-#newEntry {
+#newEntryButton {
   cursor: pointer; }
 
 #newEntryForm {
@@ -115,7 +119,6 @@ footer {
   color: white;
   display: block;
   width: 100%;
-  position: absolute;
   padding-top: 10px;
   bottom: 0; }
   footer .row {
