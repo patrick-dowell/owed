@@ -130,13 +130,10 @@ var ContentComponent = React.createClass({
         		  </th>
         	  </thead>
         	  <tbody className="entries">
+              <tr><td id="newEntryButton">New Entry</td></tr>
               { entries }
     		    </tbody>
     	    </table>
-          <p>
-            <span id="newEntryButton"><span className="glyphicon glyphicon-plus-sign"></span>New Entry</span>
-
-          </p>
     	  </div>
       );
     }
@@ -146,6 +143,27 @@ var ContentComponent = React.createClass({
 
   }
 });
+
+//var EditComponent = React.createClass({
+  //render: function() {
+    //return (
+      //<tr className="editentries">
+        //<td>
+          //{this.props.id}
+        //</td>
+        //<td>
+          //{(new Date(this.props.date)).toDateString()}
+        //</td>
+        //<td>
+          //${this.props.owed}
+        //</td>
+        //<td>
+          //{this.props.description}
+        //</td>
+      //</tr>
+    //);
+  //}
+//});
 
 var FlashComponent = React.createClass({
   render: function() {
