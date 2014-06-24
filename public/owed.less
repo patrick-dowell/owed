@@ -69,13 +69,24 @@ main {
   min-height: 1000px;
 }
 
-/* FORMS */
+/* NEW ENTRIES */
+
+#newEntry {
+}
+
+#newEntryButton {
+  cursor:pointer;
+  text-align: center;
+}
+
+#newEntryForm {
+  display: none;
+}
 
 form {
   font-family: @body-font-family;
   font-size: @body-font-size + 6px;
   font-weight: bold;
-  max-width: 100;
 
   label{
     display: inline-block;
@@ -93,7 +104,6 @@ form {
   }
 
   input[type~="submit"] {
-    float: right;
     margin-right: 15px;
   }
 
@@ -103,6 +113,10 @@ form {
     width: 333px;
   }
 
+}
+
+.newentry-form-table {
+  
 }
 
 /* SIGN IN */
@@ -118,9 +132,10 @@ form {
   position: absolute;
 }
 
+
 /* ENTRIES */
 
-.entries {
+.entries-table {
   
   table {
     border-collapse: collapse;
@@ -158,11 +173,6 @@ form {
   td {
     margin: 0;
     padding: 10px 0 10px 5px;
-    width: @td;
-
-    &:first-child {
-      width: @td-first-width;
-    }
 
     &:last-child {
       width: @td-last-width;
@@ -171,17 +181,7 @@ form {
 
 }
 
-#newEntry {
-}
-
-#newEntryButton {
-  cursor:pointer;
-  text-align: center;
-}
-
-#newEntryForm {
-  display: none;
-} 
+ 
 
 
 

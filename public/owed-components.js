@@ -84,19 +84,42 @@ var NewEntryComponent = React.createClass({
   render: function() {
     return (
       <form id="newEntryForm" onSubmit={this.handleSubmit}>
-  		  <div className="newEntryFormContainer">
+        <table className="newentry-form-table">
+        <tbody>
+        <tr>
+        <td>
         <label>Amount Owed: $</label>
+        </td>
+        <td>
         <input type="text" ref="owed" required />
-  		  <br />
+        </td>
+  		  </tr>
+        <tr>
+        <td>
   		  <label>Date:</label>
+        </td>
+        <td>
         <input type="date" ref="date" required />
-  		  <br />
+        </td>
+  		  </tr>
+        <tr>
+        <td>
   		  <label>Description:</label>
+        </td>
+        <td>
         <input type="text" ref="description" required />
-  		  <br />
+        </td>
+  		  </tr>
+        <tr>
+        <td>
   		  <div className="centersubmit">&nbsp;</div>
+        </td>
+        <td>
   		  <input type="submit" className="button" value="submit" />
-        </div>
+        </td>
+        </tr>
+        </tbody>
+        </table>
   	  </form>
     )
   }
@@ -116,7 +139,7 @@ var ContentComponent = React.createClass({
           });
       return (
         <div className="entries">
-          <table>
+          <table className="entries-table">
         	  <thead>
         		  <th>
         			  Id#
