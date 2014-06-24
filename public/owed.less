@@ -11,7 +11,7 @@
 
 @entire-width: 100%;
 
-@table-border: 2px solid $darkgreen;
+@table-border: 5px solid @darkgreen;
 @td: 20%;
 @td-first-width: 10%;
 @td-last-width: 30%;
@@ -75,9 +75,7 @@ form {
   font-family: @body-font-family;
   font-size: @body-font-size + 6px;
   font-weight: bold;
-  margin: 0 0 0 auto;
-  padding: 5px;
-  width: 50%;
+  max-width: 100;
 
   label{
     display: inline-block;
@@ -145,11 +143,12 @@ form {
   tbody {
     background-color: @white;
     font-family: @body-font-family;
-    font-size: @body-font-size + 2px;
+    font-size: @body-font-size + 6px;
+    font-weight: 700;
   }
 
   tr {
-    border: 1px solid @darkgreen;
+    border: 5px solid @darkgreen;
 
     &:nth-child(even) {
       background-color: @greywhite;
@@ -158,7 +157,7 @@ form {
 
   td {
     margin: 0;
-    padding: 5px 0 5px 5px;
+    padding: 10px 0 10px 5px;
     width: @td;
 
     &:first-child {
@@ -177,11 +176,11 @@ form {
 
 #newEntryButton {
   cursor:pointer;
+  text-align: center;
 }
 
 #newEntryForm {
   display: none;
-  height: 155px;
 } 
 
 

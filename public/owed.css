@@ -44,9 +44,7 @@ form {
   font-family: "Quicksand", sans-serif;
   font-size: 20px;
   font-weight: bold;
-  margin: 0 0 0 auto;
-  padding: 5px;
-  width: 50%;
+  max-width: 100;
 }
 form label {
   display: inline-block;
@@ -83,7 +81,7 @@ form .centersubmit {
 /* ENTRIES */
 .entries table {
   border-collapse: collapse;
-  border: 2px solid $darkgreen;
+  border: 5px solid #007020;
   display: block;
   margin-top: 25px;
   margin-left: auto;
@@ -91,7 +89,7 @@ form .centersubmit {
 }
 .entries thead {
   background-color: #d6ffe9;
-  border: 2px solid $darkgreen;
+  border: 5px solid #007020;
   font-family: "Quicksand", sans-serif;
   font-size: 20px;
   font-weight: bold;
@@ -100,17 +98,18 @@ form .centersubmit {
 .entries tbody {
   background-color: #ffffff;
   font-family: "Quicksand", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 700;
 }
 .entries tr {
-  border: 1px solid #007020;
+  border: 5px solid #007020;
 }
 .entries tr:nth-child(even) {
   background-color: #fcffed;
 }
 .entries td {
   margin: 0;
-  padding: 5px 0 5px 5px;
+  padding: 10px 0 10px 5px;
   width: 20%;
 }
 .entries td:first-child {
@@ -121,10 +120,10 @@ form .centersubmit {
 }
 #newEntryButton {
   cursor: pointer;
+  text-align: center;
 }
 #newEntryForm {
   display: none;
-  height: 155px;
 }
 /* FOOTER */
 footer {

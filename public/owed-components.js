@@ -83,8 +83,9 @@ var NewEntryComponent = React.createClass({
   },
   render: function() {
     return (
-      <form id="newEntryForm" className="row" onSubmit={this.handleSubmit}>
-  		  <label>Amount Owed: $</label>
+      <form id="newEntryForm" onSubmit={this.handleSubmit}>
+  		  <div className="newEntryFormContainer">
+        <label>Amount Owed: $</label>
         <input type="text" ref="owed" required />
   		  <br />
   		  <label>Date:</label>
@@ -95,6 +96,7 @@ var NewEntryComponent = React.createClass({
   		  <br />
   		  <div className="centersubmit">&nbsp;</div>
   		  <input type="submit" className="button" value="submit" />
+        </div>
   	  </form>
     )
   }
@@ -130,7 +132,14 @@ var ContentComponent = React.createClass({
         		  </th>
         	  </thead>
         	  <tbody className="entries">
-              <tr><td id="newEntryButton">New Entry</td></tr>
+              <tr>
+                <td id="newEntryButton" colSpan="4">
+                  <span className="mega-octicon octicon-diff-added"></span>
+                <div id="newEntry">
+                  <NewEntryComponent entryHandler={this.addEntry}/>
+                </div>
+                </td>
+              </tr>
               { entries }
     		    </tbody>
     	    </table>
@@ -287,9 +296,6 @@ var MainComponent = React.createClass({
             <ContentComponent text={this.state.content}
               contentType={this.state.contentType}
               entries={this.state.entries} />
-          </div>
-          <div id="newEntry" className="row">
-            <NewEntryComponent entryHandler={this.addEntry}/>
           </div>
         </main>
 
