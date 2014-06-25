@@ -42,7 +42,9 @@ main {
 /* NEW ENTRIES */
 #newEntryButton {
   cursor: pointer;
-  text-align: center;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 #newEntryForm {
   display: none;
@@ -54,9 +56,6 @@ form {
 }
 form label {
   display: inline-block;
-  float: left;
-  clear: left;
-  width: 250px;
   margin: 1px 5px;
 }
 form input {
@@ -64,9 +63,12 @@ form input {
   display: inline-block;
   float: left;
   margin: 5px 5px;
+  width: 240px;
+  height: 36px;
 }
 form input[type~="submit"] {
   margin-right: 15px;
+  width: 100px;
 }
 form .centersubmit {
   clear: left;
@@ -84,7 +86,7 @@ form .centersubmit {
   position: absolute;
 }
 /* ENTRIES */
-.entries-table table {
+table {
   border-collapse: collapse;
   border: 5px solid #007020;
   display: block;
@@ -92,7 +94,7 @@ form .centersubmit {
   margin-left: auto;
   margin-right: auto;
 }
-.entries-table thead {
+table thead {
   background-color: #d6ffe9;
   border: 5px solid #007020;
   font-family: "Quicksand", sans-serif;
@@ -100,24 +102,57 @@ form .centersubmit {
   font-weight: bold;
   text-align: left;
 }
-.entries-table tbody {
+table tbody {
   background-color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
-.entries-table tr {
+table tr {
   border: 5px solid #007020;
 }
-.entries-table tr:nth-child(even) {
+table tr:nth-child(even) {
   background-color: #fcffed;
 }
-.entries-table td {
+table tr td {
   margin: 0;
   padding: 10px 0 10px 5px;
 }
-.entries-table td:last-child {
+table tr td:last-child {
   width: 30%;
+}
+table tr td table {
+  display: block;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+table tr td table tbody {
+  background-color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+table tr td table tr {
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+table tr td table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+table tr td table td {
+  margin: 0;
+  padding: 0;
+}
+table tr td table td:first-child {
+  text-align: right;
+  width: 240px;
+}
+table tr td table td:last-child {
+  text-align: left;
 }
 /* FOOTER */
 footer {

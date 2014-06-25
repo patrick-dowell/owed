@@ -75,8 +75,10 @@ main {
 }
 
 #newEntryButton {
-  cursor:pointer;
-  text-align: center;
+  cursor: pointer;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #newEntryForm {
@@ -88,11 +90,8 @@ form {
   font-size: @body-font-size + 6px;
   font-weight: bold;
 
-  label{
+  label {
     display: inline-block;
-    float: left;
-    clear: left;
-    width: 250px;
     margin: 1px 5px;
   }
 
@@ -101,10 +100,13 @@ form {
     display: inline-block;
     float: left;
     margin: 5px 5px;
+    width: 240px;
+    height: 36px;
   }
 
   input[type~="submit"] {
     margin-right: 15px;
+    width: 100px;
   }
 
   .centersubmit {
@@ -113,10 +115,6 @@ form {
     width: 333px;
   }
 
-}
-
-.newentry-form-table {
-  
 }
 
 /* SIGN IN */
@@ -134,55 +132,88 @@ form {
 
 
 /* ENTRIES */
-
-.entries-table {
-  
-  table {
+ 
+table {
     border-collapse: collapse;
     border: @table-border;
     display: block;
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  thead {
+
+    thead {
     background-color: @green;
     border: @table-border;
     font-family: @body-font-family;
     font-size: @body-font-size + 6px;
     font-weight: bold;
     text-align: left;
-  }
+    }
 
-  tbody {
+    tbody {
     background-color: @white;
     font-family: @body-font-family;
     font-size: @body-font-size + 6px;
     font-weight: 700;
-  }
+    }
 
-  tr {
+    tr {
     border: 5px solid @darkgreen;
 
-    &:nth-child(even) {
-      background-color: @greywhite;
-    }
-  }
+      &:nth-child(even) {
+        background-color: @greywhite;
+      }
 
-  td {
-    margin: 0;
-    padding: 10px 0 10px 5px;
+      td {
+        margin: 0;
+        padding: 10px 0 10px 5px;
 
-    &:last-child {
-      width: @td-last-width;
-    }
-  }
+        &:last-child {
+          width: @td-last-width;
+        }
 
+        table {
+          display: block;
+          margin-top: 25px;
+          margin-left: auto;
+          margin-right: auto;
+          border: none;
+
+          tbody {
+            background-color: @white;
+            font-family: @body-font-family;
+            font-size: @body-font-size + 6px;
+            font-weight: 700;
+          }
+
+          tr {
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+
+            &:nth-child(even) {
+              background-color: @white;
+            }
+          }
+
+          td {
+            margin: 0;
+            padding: 0;
+
+            &:first-child {
+              text-align: right;
+              width: 240px;
+            }
+
+            &:last-child {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }    
 }
-
- 
-
 
 
 /* FOOTER */
