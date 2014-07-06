@@ -84,41 +84,18 @@ var NewEntryComponent = React.createClass({
   render: function() {
     return (
       <form id="newEntryForm" onSubmit={this.handleSubmit}>
-        <table>
-          <tbody>
-            <tr>
               <td>
-                <label>Amount Owed: $</label>
-              </td>
-              <td>
-                <input type="text" ref="owed" required />
-              </td>
-  		      </tr>
-            <tr>
-              <td>
-  		          <label>Date:</label>
+                <button type="submit" className="mega-octicon octicon-diff-added button" value="submit"></button>
               </td>
               <td>
                 <input type="date" ref="date" required />
               </td>
-  		      </tr>
-            <tr>
               <td>
-  		          <label>Description:</label>
+                <input type="text" ref="owed" required />
               </td>
               <td>
                 <input type="text" ref="description" required />
               </td>
-  		      </tr>
-            <tr>
-              <td>
-              </td>
-              <td>
-                <input type="submit" className="button" value="submit" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
   	  </form>
     )
   }
@@ -154,13 +131,8 @@ var ContentComponent = React.createClass({
         		  </th>
         	  </thead>
         	  <tbody className="entries">
-              <tr>
-                <td colSpan="4">
-                  <div id="newEntryButton" className="mega-octicon octicon-diff-added"></div>
-                <div id="newEntry">
+              <tr id="newEntry">
                   <NewEntryComponent entryHandler={this.addEntry}/>
-                </div>
-                </td>
               </tr>
               { entries }
     		    </tbody>
@@ -286,7 +258,7 @@ var MainComponent = React.createClass({
     this.setState({
       entries: [entry].concat(this.state.entries)
     });
-    $('#newEntryForm').hide()
+    $('#newEntryForm')
         .find("input[type=text]").val("")
         .find("input[type=date]").val("");
   },

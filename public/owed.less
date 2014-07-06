@@ -71,6 +71,11 @@ main {
 
 /* NEW ENTRIES */
 
+button {
+  border: none;
+  background-color: #fff;
+}
+
 #newEntry {
 }
 
@@ -102,6 +107,7 @@ form {
     margin: 5px 5px;
     width: 240px;
     height: 36px;
+    line-height: 32px;
   }
 
   input[type~="submit"] {
@@ -140,6 +146,7 @@ table {
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 25px;
 
     thead {
     background-color: @green;
@@ -166,7 +173,7 @@ table {
 
       td {
         margin: 0;
-        padding: 10px 0 10px 5px;
+        padding: 10px 5px 10px 5px;
 
         &:last-child {
           width: @td-last-width;
