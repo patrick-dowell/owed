@@ -260,25 +260,9 @@ var ContentComponent = React.createClass({
           });
       return (
         <div className="entries">
+          <NewEntryComponent entryHandler={this.addEntry}/>
           <table className="entries-table">
-            <thead>
-              <th>
-                Id#
-              </th>
-              <th>
-                Date
-              </th>
-              <th>
-                Amount
-              </th>
-              <th>
-                Description
-              </th>
-            </thead>
             <tbody className="entries">
-              <tr id="newEntry">
-                  <NewEntryComponent entryHandler={this.addEntry}/>
-              </tr>
               { entries }
             </tbody>
           </table>
@@ -326,6 +310,23 @@ var NewEntryComponent = React.createClass({
   render: function() {
     return (
       <form id="newEntryForm" onSubmit={this.handleSubmit}>
+        <table className="entries-table">
+          <thead>
+            <th>
+              Id#
+            </th>
+            <th>
+              Date
+            </th>
+            <th>
+              Amount
+            </th>
+            <th>
+              Description
+            </th>
+          </thead>
+          <tbody className="entries">
+            <tr id="newEntry">
               <td>
                 <button type="submit" className="mega-octicon octicon-diff-added button" value="submit"></button>
               </td>
@@ -338,6 +339,9 @@ var NewEntryComponent = React.createClass({
               <td>
                 <input type="text" ref="description" required />
               </td>
+            </tr>
+          </tbody>
+        </table>
       </form>
     )
   }
